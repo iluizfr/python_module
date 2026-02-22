@@ -1,4 +1,4 @@
-def ft_count_havesdt_iterative():
+def ft_count_havesdt_iterative() -> None:
     c = 1
     days = int(input("Days until harvest: "))
     for days in range(0, days):

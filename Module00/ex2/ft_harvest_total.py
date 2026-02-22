@@ -1,4 +1,4 @@
-def harvest_total():
+def harvest_total() -> None:
     sum = 0
     day = 1
     for i in range(3):
