@@ -19,7 +19,7 @@ class Flower(Plant):
         else:
             print(f"{self.name} need more time to bloom..\n")
 
-    def display_info(self):
+    def display_info(self) -> None:
         print(f"{self.name} (Flower): {self.get_info()}, {self.color} color")
 
 
@@ -33,7 +33,7 @@ class Tree(Plant):
         a = int(1.56*self.trnk)
         print(f"{self.name} provides {a} square meters of shade\n")
 
-    def display_info(self):
+    def display_info(self) -> None:
         print(f"{self.name} (Tree): {self.get_info()}, {self.trnk}cm diameter")
 
 
@@ -47,7 +47,7 @@ class Vegetable(Plant):
     def nutri(self) -> None:
         print(f"{self.name} is rich in vitamin {self.nutritional_val}\n")
 
-    def display_info(self):
+    def display_info(self) -> None:
         print(f"{self.name} (Vegetable): {self.get_info()}, {self.harvest}")
 
 

@@ -1,5 +1,5 @@
-class Plant():
-    def __init__(self, name: str, height: float, age: int):
+class Plant:
+    def __init__(self, name: str, height: float, age: int) -> None:
         self.name = name
         self.height = height
         self.age = age
@@ -14,15 +14,15 @@ class Plant():
         self.age += days
 
 
-class Factory():
-    def __init__(self):
+class Factory:
+    def __init__(self) -> None:
         self.plants = []
 
-    def add_plant(self, name: str, height: float, age: int):
+    def add_plant(self, name: str, height: float, age: int) -> None:
         new_plant = Plant(name, height, age)
         self.plants += [new_plant]
 
-    def factory_info(self):
+    def factory_info(self) -> None:
         i = 0
         print("=== Plant Factory Output ===")
         for plant in self.plants:
