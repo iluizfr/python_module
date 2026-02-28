@@ -79,7 +79,7 @@ class GardenManager:
             self.total_growth += 1
             print(f"{plant.name} grew 1cm")
 
-    def show_reports(self):
+    def show_reports(self) -> None:
         print(f"\n=== {self.owner}'s Garden Report ===")
         print("Plants in garden:")
         for plant in self.plants:
@@ -102,10 +102,10 @@ class GardenManager:
         print(f"Total gardens managed: {cls.total_gardens}")
 
     @staticmethod
-    def validate_height(height):
+    def validate_height(height) -> bool:
         return height >= 0
 
-    def calculate_score(self):
+    def calculate_score(self) -> int:
         score = 0
         for plant in self.plants:
             score += plant.height
