@@ -4,7 +4,7 @@ class Plant:
         self.height = height
         self.age = age
 
-    def get_info(self):
+    def get_info(self) -> str:
         return f"{self.height}cm, {self.age} days"
 
 
