@@ -65,4 +65,3 @@ if __name__ == "__main__":
     players_set = {'alice', 'bob', 'charlie', 'diana', 'diana'}
     print(f"Unique players: {players_set}")
     print(f"Testing if player 'michel' is in set: {'michel' in players_set}")
-    
