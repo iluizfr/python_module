@@ -4,11 +4,11 @@ if __name__ == "__main__":
     vault = "ancient_fragment.txt"
     try:
         print(f"Accessing Storage Vault: {vault}")
-        with open("ancient_fragment.txt", "r") as f:
-            content = f.read()
+        with open("ancient_fragment.txt", "r") as file:
+            content = file.read()
             print("Connection established...\n")
             print(f"RECOVERED DATA:\n{content}")
-    except FileNotFoundError as error:
-        print(error)
+    except FileNotFoundError:
+        print("ERROR: Storage vault not found.")
     finally:
         print("\nData recovery complete. Storage unit disconnected.")

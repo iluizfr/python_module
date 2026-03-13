@@ -5,17 +5,17 @@ if __name__ == "__main__":
 
     try:
         print("Initiating secure vault access...")
-        with open(vault_01, "r") as f:
+        with open(vault_01, "r") as file:
             print("Vault connection established with failsafe protocols\n")
 
             print("SECURE EXTRACTION:")
-            print(f.read())
+            print(file.read())
             print("[CLASSIFIED] Quantum encryption keys recovered")
             print("[CLASSIFIED] Archive integrity: 100%")
 
         print("\nSECURE PRESERVATION:")
-        with open(vault_02, "w") as f2:
-            f2.write("New data preserved.")
+        with open(vault_02, "w") as file_02:
+            file_02.write("New data preserved.")
             print("[CLASSIFIED] New security protocols archived")
             print("Vault automatically sealed upon completion")
     except FileNotFoundError as err:

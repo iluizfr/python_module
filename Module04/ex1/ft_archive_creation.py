@@ -10,11 +10,11 @@ if __name__ == "__main__":
 
     try:
         print(f"Initializing new storage unit: {archieve}")
-        with open(archieve, "w") as f:
+        with open(archieve, "w") as file:
             print("Storage unit created successfully...\n")
             print("Inscribing preservation data...")
             for data in list_data:
-                f.write(f"[Entry 00{i}] {data}\n")
+                file.write(f"[Entry 00{i}] {data}\n")
                 print(f"[Entry 00{i}] {data}")
                 i += 1
     except Exception("Something went wrong!") as erro:
