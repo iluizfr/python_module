@@ -1,4 +1,10 @@
+# List is a collection which is ordered and
+# changeable. Allows duplicate members.
 import sys
+
+
+class NegativeError(Exception):
+    pass
 
 
 if __name__ == "__main__":
@@ -14,8 +20,10 @@ if __name__ == "__main__":
 
             for arg in sys.argv:
                 if (i < len(sys.argv)):
+                    if int(sys.argv[i]) < 0:
+                        raise NegativeError("Only positive numbers for scores")
                     total_score += int(sys.argv[i])
-                    integer_list += [sys.argv[i]]
+                    integer_list += [int(sys.argv[i])]
                     i += 1
 
             avarege_score = total_score / total_players
@@ -32,4 +40,6 @@ if __name__ == "__main__":
             print(f"Score range: {score_range}\n")
         except ValueError:
             print("Ops, only numbers for scores..\n")
+        except NegativeError as err:
+            print(f"Error: {err}")
             sys.exit(1)

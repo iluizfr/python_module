@@ -1,3 +1,5 @@
+# Set is a collection which is unordered, unchangeable*
+# "can add or remove", and unindexed. No duplicate members.
 class Player:
     def __init__(self, name: str, achievements: set) -> None:
         self.name = name
@@ -38,14 +40,14 @@ if __name__ == "__main__":
     rare_charlie = charlie.achievements.difference(
         alice.achievements.union(bob.achievements))
 
-    rare = rare_alice | rare_bob | rare_charlie
+    rare = rare_alice | rare_bob | rare_charlie  # | == union
 
     print(f"Rare achievements (1 player): {rare}")
 
     common_alice_bob = alice.achievements.intersection(bob.achievements)
     print(f"\nAlice vc Bob common: {common_alice_bob}")
 
-    alice_unique = alice.achievements - bob.achievements
+    alice_unique = alice.achievements - bob.achievements  # - == difference
     print(f"Alice unique: {alice_unique}")
 
     bob_unique = bob.achievements - alice.achievements

@@ -15,6 +15,6 @@ if __name__ == "__main__":
         sys.stderr.write(f"[STDERR] {err}")
         sys.exit()
     sys.stdout.write(f"\n[STANDARD] Archive status from {id}: {report}\n")
-    sys.stdout.write(f"[ALERT] System diagnostic: {alert_01}\n")
+    sys.stderr.write(f"[ALERT] System diagnostic: {alert_01}\n")
     sys.stdout.write("[STANDARD] Data transmission complete\n")
     sys.stdout.write("\nThree-channel communication test successful.\n")
