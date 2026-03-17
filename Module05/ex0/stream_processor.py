@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 from typing import Any
 
 
-class Dataprocessor(ABC):
+class DataProcessor(ABC):
     def __init__(self) -> None:
         pass
 
@@ -11,20 +11,22 @@ class Dataprocessor(ABC):
         pass
 
     @abstractmethod
-    def validation(self, data: Any) -> bool:
+    def validate(self, data: Any) -> bool:
         pass
 
-    def format_output(self, result: Any) -> str:
+    def format_output(self, result: str) -> str:
         return f"Output: {result}"
 
 
-class NumericProcessor(Dataprocessor):
+class NumericProcessor(DataProcessor):
     def __init__(self) -> None:
         super().__init__()
         print("\nInitializing Numeric Processor...")
 
     def process(self, data: Any) -> str:
         try:
+            if not self.validate(data):
+                raise ValueError("Invalid data")
 
             dlen = len(data)
             dsum = sum(data)
@@ -34,9 +36,9 @@ class NumericProcessor(Dataprocessor):
         except Exception:
             return "Something went wrong.."
 
-    def validation(self, data: Any) -> bool:
+    def validate(self, data: Any) -> bool:
         if type(data) is not list:
-            print("Validation: Data must be a list of inntegers.")
+            print("Validation: Data must be a list of integers.")
             return False
 
         else:
@@ -52,22 +54,24 @@ class NumericProcessor(Dataprocessor):
         return super().format_output(result)
 
 
-class TextProcessor(Dataprocessor):
+class TextProcessor(DataProcessor):
     def __init__(self) -> None:
         super().__init__()
         print("\nInitializing Text Processor...")
 
     def process(self, data: Any) -> str:
         try:
+            if not self.validate(data):
+                raise ValueError("Invalid data")
 
             len_data = len(data)
             n_word = len(data.split())
             return f"Processed text: {len_data} characters, {n_word} words"
 
         except Exception:
-            print("Something went wrong..")
+            return "Something went wrong.."
 
-    def validation(self, data: Any) -> bool:
+    def validate(self, data: Any) -> bool:
         if data.__class__ is not str:
             print("Validation: Data must be a string..")
             return False
@@ -83,7 +87,7 @@ class TextProcessor(Dataprocessor):
         return super().format_output(result)
 
 
-class LogProcessor(Dataprocessor):
+class LogProcessor(DataProcessor):
     def __init__(self) -> None:
         super().__init__()
         print("\nInitializing Log Processor...")
@@ -96,14 +100,14 @@ class LogProcessor(Dataprocessor):
                 return f"[ALERT] ERROR level detected: {sep_data[1]}"
 
             if sep_data[0] == "INFO":
-                return f"[INFO] INFO level detcted: {sep_data[1]}"
+                return f"[INFO] INFO level detected: {sep_data[1]}"
 
-            return "Unkown log level"
+            return "Unknown log level"
 
         except Exception:
-            print("Something went wrong..")
+            return "Something went wrong.."
 
-    def validation(self, data: Any) -> bool:
+    def validate(self, data: Any) -> bool:
         if data.__class__ is not str:
             print("Validation: Log entry must be a string")
             return False
@@ -124,38 +128,38 @@ class LogProcessor(Dataprocessor):
                 return False
 
         except Exception:
-            print("Something went wrong..")
+            return "Something went wrong.."
 
         print("Validation: Log entry verified")
         return True
 
-    def format_output(self, result) -> None:
+    def format_output(self, result: Any) -> None:
         return super().format_output(result)
 
 
-if __name__ == "__main__":
+def main():
     print("=== CODE NEXUS - DATA PROCESSOR FOUNDATION ===")
 
     numeric_processor = NumericProcessor()
     data = [1, 2, 3, 4, 5]
     print(f"Processing data: {data}")
     numeric_processor.process(data)
-    numeric_processor.validation(data)
+    numeric_processor.validate(data)
     print(numeric_processor.format_output(numeric_processor.process(data)))
 
     text_processor = TextProcessor()
     data02 = "Hello Nexus World"
     print(f"processing data: {data02}")
     text_processor.process(data02)
-    text_processor.validation(data02)
+    text_processor.validate(data02)
     print(text_processor.format_output(text_processor.process(data02)))
 
     log_processor = LogProcessor()
     data03 = "ERROR: Connection timeout"
     print(f"Processing data: {data03}")
     log_processor.process(data03)
-    log_processor.validation(data03)
-    print(text_processor.format_output(log_processor.process(data03)))
+    log_processor.validate(data03)
+    print(log_processor.format_output(log_processor.process(data03)))
 
     print("\n=== Polymorphic Processing Demo ===\n")
     print("Processing multiple data types through same interface...")
@@ -170,3 +174,7 @@ if __name__ == "__main__":
         j += 1
 
     print("\nFoundation systems online. Nexus ready for advanced streams.")
+
+
+if __name__ == "__main__":
+    main()
