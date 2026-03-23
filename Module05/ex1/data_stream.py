@@ -74,7 +74,7 @@ class SensorStream(DataStream):
                     continue
 
                 temperature = item.get("temp", 0)
-                if temperature > 50:
+                if (temperature > 50):
                     filtered_data.append(item)
 
             return filtered_data
@@ -168,7 +168,7 @@ class StreamProcessor:
                 print(f"{stream.stream_id}: No mathces")
 
 
-def main():
+def main() -> None:
     print("=== CODE NEXUS - POLYMORPHIC STREAM SYSTEM ===")
 
     print("\nInitializing Sensor Stream...")
