@@ -33,8 +33,8 @@ class NumericProcessor(DataProcessor):
             davg = dsum / dlen
             return f"Processed {dlen} numeric values, sum={dsum}, avg={davg}"
 
-        except Exception:
-            return "Something went wrong.."
+        except Exception as err:
+            return f"Error in Numeric Processor: {err}"
 
     def validate(self, data: Any) -> bool:
         if type(data) is not list:
@@ -68,8 +68,8 @@ class TextProcessor(DataProcessor):
             n_word = len(data.split())
             return f"Processed text: {len_data} characters, {n_word} words"
 
-        except Exception:
-            return "Something went wrong.."
+        except Exception as err:
+            return f"Error in Text processor: {err}"
 
     def validate(self, data: Any) -> bool:
         if data.__class__ is not str:
@@ -104,8 +104,8 @@ class LogProcessor(DataProcessor):
 
             return "Unknown log level"
 
-        except Exception:
-            return "Something went wrong.."
+        except Exception as err:
+            return f"Error in Log Processor: {err}"
 
     def validate(self, data: Any) -> bool:
         if data.__class__ is not str:
