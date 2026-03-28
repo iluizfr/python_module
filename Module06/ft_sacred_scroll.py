@@ -15,12 +15,12 @@ def main() -> None:
     print("alchemy.create_water():", alchemy.create_water())
     try:
         print(alchemy.create_earth())
-    except Exception as erro:
+    except AttributeError as erro:
         print(f"alchemy.create_earth(): {erro}")
     try:
         print(alchemy.create_air())
-    except Exception as erro:
-        print(f"alchemy.create_air()e: {erro}")
+    except AttributeError as erro:
+        print(f"alchemy.create_air(): {erro}")
 
     print("\nPackage metadata:")
     print("Version:", alchemy.__version__)
