@@ -1,23 +1,41 @@
-from .elements import create_water, create_fire, create_earth, create_air
-
-
 def healing_potion() -> str:
-    return f"Healing potion brewed with {create_fire()} and {create_water()}"
+    try:
+        from .elements import create_fire, create_water
+        return (f"Healing potion brewed with "
+                f"{create_fire()} and {create_water()}")
+    except Exception as err:
+        return f"Import Error: {err}"
 
 
 def strength_potion() -> str:
-    return f"Strength potion brewed with {create_earth()} and {create_fire()}"
+    try:
+        from .elements import create_earth, create_fire
+        return ("Strength potion brewed with "
+                f"{create_earth()} and {create_fire()}")
+    except Exception as err:
+        return f"Import Error: {err}"
 
 
 def invisibility_potion() -> str:
-    air = create_air()
-    water = create_water()
-    return f"Invisibility potion brewed with {air} and {water}"
+    try:
+        from .elements import create_air, create_water
+        air = create_air()
+        water = create_water()
+        return f"Invisibility potion brewed with {air} and {water}"
+    except Exception as err:
+        return f"Import Error: {err}"
 
 
 def wisdom_potion() -> str:
-    water = create_water()
-    earth = create_earth()
-    fire = create_fire()
-    air = create_air()
-    return f"Wisdom potion brewed with all elements: {water, earth, fire, air}"
+    try:
+        from .elements import create_water, create_earth
+        from .elements import create_fire, create_air
+        water = create_water()
+        earth = create_earth()
+        fire = create_fire()
+        air = create_air()
+
+        return ("Wisdom potion brewed with all elements: "
+                f"{water, earth, fire, air}")
+    except Exception as err:
+        return f"Import Error: {err}"
