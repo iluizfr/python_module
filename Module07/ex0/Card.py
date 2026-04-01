@@ -13,7 +13,7 @@ class Card(ABC):
         pass
 
     def get_card_info(self) -> dict:
-        return {"name": {self.name}, "cost": self.cost, "rarity": self.rarity}
+        return {"name": self.name, "cost": self.cost, "rarity": self.rarity}
 
     def is_playable(self, available_mana: int) -> bool:
-        pass
+        return available_mana > self.cost
