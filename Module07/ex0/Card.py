@@ -17,3 +17,9 @@ class Card(ABC):
 
     def is_playable(self, available_mana: int) -> bool:
         return available_mana > self.cost
+
+    def validate_value(self, value: int) -> int:
+        if value > 0:
+            return value
+        else:
+            return 0
