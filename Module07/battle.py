@@ -4,13 +4,13 @@ import ex0
 
 def test_factory(factory: CreatureFactory) -> None:
     base = factory.create_base()
-    envolved = factory.create_envolved()
+    evolved = factory.create_evolved()
 
     print(base.describe())
     print(base.attack_target())
 
-    print(envolved.describe())
-    print(envolved.attack_target())
+    print(evolved.describe())
+    print(evolved.attack_target())
 
 
 def battle(flame_fac: CreatureFactory, aqua_fac: CreatureFactory) -> None:

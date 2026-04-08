@@ -7,5 +7,5 @@ class AquaFactory(CreatureFactory):
     def create_base(self) -> Aquabub:
         return Aquabub()
 
-    def create_envolved(self) -> Torragon:
+    def create_evolved(self) -> Torragon:
         return Torragon()

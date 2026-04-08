@@ -8,5 +8,5 @@ class CreatureFactory(ABC):
         pass
 
     @abstractmethod
-    def create_envolved() -> Creature:
+    def create_evolved() -> Creature:
         pass
