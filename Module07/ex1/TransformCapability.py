@@ -9,4 +9,3 @@ class TransformCapability(ABC):
     @abstractmethod
     def revert(self) -> str:
         pass
-

@@ -6,4 +6,4 @@ class Pyrodon(Creature):
         super().__init__("Pyrodon", "Fire/Flying")
 
     def attack_target(self) -> str:
-        return f"{self.name} uses Flamethrowe!"
+        return f"{self.name} uses Flamethrower!"

@@ -18,7 +18,7 @@ def battle(flame_fac: CreatureFactory, aqua_fac: CreatureFactory) -> None:
     aquabub = aqua_fac.create_base()
 
     print(flameling.describe())
-    print("vs.")
+    print(" vs.")
     print(aquabub.describe())
     print(" fight!")
     print(flameling.attack_target())
