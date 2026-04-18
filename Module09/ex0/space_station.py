@@ -13,7 +13,7 @@ class SpaceStation(BaseModel):
     is_operational: Optional[bool] = True
     notes: Optional[str] = Field(default=None, max_length=200)
 
-    def info(self):
+    def info(self) -> None:
         m = "Non-Operational"
         print(f"ID: {self.station_id}")
         print(f"Name: {self.name}")
